@@ -1,13 +1,7 @@
 import React from 'react';
-import LoginForm from './LoginForm';
 import './App.css';
+import AppRouter from './routes/AppRouter';
 
-function App() {
-  return (
-    <div className="App">
-      <LoginForm />
-    </div>
-  );
-}
+const App = () => <AppRouter />;
 
 export default App;
