@@ -4,6 +4,14 @@ const LoginForm = () => {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
 
+  const handleUsername = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setUsername(e.target.value);
+  }
+
+  const handlePassword = (e: ChangeEvent<HTMLTextAreaElement>) => {
+    setPassword(e.target.value);
+  }
+
   const submit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     fetch("http://localhost:3333/login", {
