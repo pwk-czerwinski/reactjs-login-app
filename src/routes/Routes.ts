@@ -1,7 +1,10 @@
 /**
  * Here are located all routes.
  */
-export class Routes {
-    public static readonly START = '/';
-    public static readonly LOGIN = '/login';
+enum Routes {
+    Home = '/',
+    Login = '/login',
+    Dashboard = '/dashboard',
 }
+
+export default Routes;
