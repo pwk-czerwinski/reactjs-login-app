@@ -1,26 +1,19 @@
 import React from 'react';
-import { BrowserRouter, Route, Switch, Redirect } from 'react-router-dom';
-import { Routes } from './Routes';
-import LoginForm from './../LoginForm';
+import { BrowserRouter, Switch, Redirect } from 'react-router-dom';
+import Routes from './Routes';
+import PublicRoute from './PublicRoute';
+import LoginForm from '../components/login/LoginForm';
 
 /**
  * Router with all routes in the whole application.
  */
-const AppRouter = () => {
-    return (
-        <BrowserRouter>
-            <Switch>
-                <Route
-                    exact
-                    path={Routes.START}
-                    render={() => <Redirect to={Routes.LOGIN} />}
-                />
-                <Route path={Routes.LOGIN}>
-                    <LoginForm />
-                </Route>
-            </Switch>
-        </BrowserRouter>
-    );
-}
+const AppRouter = () => (
+    <BrowserRouter>
+        <Switch>
+            <PublicRoute restricted component={LoginForm} path={Routes.Login} exact />
+            <Redirect to={Routes.Login} />
+        </Switch>
+    </BrowserRouter>
+);
 
 export default AppRouter
