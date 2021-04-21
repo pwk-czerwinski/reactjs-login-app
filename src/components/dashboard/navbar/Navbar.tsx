@@ -1,5 +1,5 @@
 import React, { FunctionComponent, useState } from 'react';
-import { AppBar, Toolbar, Typography, IconButton } from '@material-ui/core';
+import { AppBar, Toolbar, Typography, IconButton, Skeleton } from '@material-ui/core';
 import { AccountCircle } from '@material-ui/icons';
 import useNavbarStyles from '../../../styles/dashboard/navbar/navbarClasses';
 import UserContext from '../../../state/UserContext';
@@ -26,7 +26,10 @@ const Navbar: FunctionComponent = () => {
                     </Typography>
                     <Typography variant="subtitle2" className={classes.intro}>
                         <UserContext.Consumer>
-                            { (user) => `Welcome ${user.firstName} ${user.lastName}` }
+                            { (user) => user.firstName && user.lastName ?
+                                `Welcome ${user.firstName} ${user.lastName}` :
+                                <Skeleton animation="wave" width={120} />
+                            }
                         </UserContext.Consumer>
                     </Typography>
                     <div>

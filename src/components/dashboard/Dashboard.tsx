@@ -14,7 +14,8 @@ const Dashboard: FunctionComponent = () => {
 
     useEffect(() => {
         if (!isPending) {
-            getUser().then(res => setUser(res?.data));
+            getUser().then(res =>
+            setTimeout(() => setUser(res?.data), 3000));
             setIsPending(true);
         }
     }, [getUser, isPending]);
